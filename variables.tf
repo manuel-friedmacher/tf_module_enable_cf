@@ -20,7 +20,7 @@ variable "cf_region" {
   description = "Region where the cloud foundry instance shall be created in."
   type        = string
   validation {
-    condition     = contains(["cf-eu10-005"], var.cf_region)
-    error_message = "The region of the subaccount must be one of: cf-eu10-005."
+    condition     = contains(["cf-eu10-005", "cf-eu20-002"], var.cf_region)
+    error_message = "The region of the subaccount must be one of: cf-eu10-005, cf-eu20-002."
   }
 }
