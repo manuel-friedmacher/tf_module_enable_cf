@@ -10,31 +10,39 @@ Enable a Cloud Foundry environment in an existing SAP BTP subaccount.
 Apply this module before `tf_module_workzone`. Pass the resulting `cf_org_id` to that module after environment provisioning completes.
 
 <!-- BEGIN_TF_DOCS -->
-[36mrequirement.terraform[0m (>= 1.14.0)
-[36mrequirement.btp[0m (>= 1.22)
+## Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.0 |
+| <a name="requirement_btp"></a> [btp](#requirement\_btp) | >= 1.22 |
 
-[36mprovider.btp[0m (1.26.0)
+## Providers
 
+| Name | Version |
+|------|---------|
+| <a name="provider_btp"></a> [btp](#provider\_btp) | >= 1.22 |
 
-[36mresource.btp_subaccount_entitlement.cf_runtime (resource)[0m (https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_entitlement)
-[36mresource.btp_subaccount_entitlement.cloud_foundry (resource)[0m (https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_entitlement)
-[36mresource.btp_subaccount_environment_instance.cloudfoundry (resource)[0m (https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_environment_instance)
+## Resources
 
+| Name | Type |
+|------|------|
+| [btp_subaccount_entitlement.cf_runtime](https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_entitlement) | resource |
+| [btp_subaccount_entitlement.cloud_foundry](https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_entitlement) | resource |
+| [btp_subaccount_environment_instance.cloudfoundry](https://registry.terraform.io/providers/SAP/btp/latest/docs/resources/subaccount_environment_instance) | resource |
 
-[36minput.cf_region[0m (required)
-[90mCloud Foundry landscape region for the environment instance.[0m
+## Inputs
 
-[36minput.subaccount_id[0m (required)
-[90mID of the subaccount where Cloud Foundry will be enabled.[0m
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_cf_region"></a> [cf\_region](#input\_cf\_region) | Cloud Foundry landscape region for the environment instance. | `string` | n/a | yes |
+| <a name="input_subaccount_id"></a> [subaccount\_id](#input\_subaccount\_id) | ID of the subaccount where Cloud Foundry will be enabled. | `string` | n/a | yes |
+| <a name="input_subaccount_subdomain"></a> [subaccount\_subdomain](#input\_subaccount\_subdomain) | Lowercase DNS subdomain of the subaccount used to name Cloud Foundry resources. | `string` | n/a | yes |
 
-[36minput.subaccount_subdomain[0m (required)
-[90mLowercase DNS subdomain of the subaccount used to name Cloud Foundry resources.[0m
+## Outputs
 
-
-[36moutput.cf_instance_id[0m
-[90mTechnical ID of the Cloud Foundry instance.[0m
-
-[36moutput.cf_org_id[0m
-[90mTechnical ID of the Cloud Foundry organization.[0m
+| Name | Description |
+|------|-------------|
+| <a name="output_cf_instance_id"></a> [cf\_instance\_id](#output\_cf\_instance\_id) | Technical ID of the Cloud Foundry instance. |
+| <a name="output_cf_org_id"></a> [cf\_org\_id](#output\_cf\_org\_id) | Technical ID of the Cloud Foundry organization. |
 <!-- END_TF_DOCS -->
