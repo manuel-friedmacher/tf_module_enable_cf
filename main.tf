@@ -7,7 +7,7 @@ locals {
 /*
  * Enable Cloud Foundry runtime in the subaccount
  */
-# Assing the Cloud Foundry runtime entitlement to the subaccount
+# Assign the Cloud Foundry runtime entitlement to the subaccount.
 resource "btp_subaccount_entitlement" "cloud_foundry" {
   subaccount_id = var.subaccount_id
   service_name  = "cloudfoundry"
@@ -32,4 +32,8 @@ resource "btp_subaccount_environment_instance" "cloudfoundry" {
   parameters = jsonencode({
     instance_name = local.cf_org
   })
+  depends_on = [
+    btp_subaccount_entitlement.cloud_foundry,
+    btp_subaccount_entitlement.cf_runtime,
+  ]
 }
